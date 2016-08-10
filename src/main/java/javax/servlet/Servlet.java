@@ -92,7 +92,7 @@ import java.io.IOException;
  * <p>定义所有 servlet 都必须实现的方法集。
  *
  * <p>Servlet 是一个小的 Java 程序，运行在 Web 服务器。
- * Servlets 通常通过 HTTP 协议来接收并响应来自 Web 客户端的请求。
+ * Servlets 通常通过 HTTP 协议来接收和响应来自 Web 客户端的请求。
  *
  * <p>为了实现本接口，可以编写一个通用的继承 GenericServlet 的 servlet 实现
  * 或者继承 HttpServlet 的 HTTP servlet 实现。
@@ -114,7 +114,7 @@ import java.io.IOException;
  * @see 	javax.servlet.http.HttpServlet
  *
  */
-// 核心接口
+// 核心接口 请求处理程序，用来接收和响应来自Web客户端的请求
 public interface Servlet {
 
     /**
@@ -154,11 +154,10 @@ public interface Servlet {
      * @see 				#getServletConfig
      *
      */
-    // 核心方法: 初始化并上线 Servlet
+    // 核心方法 初始化Servlet并放置到服务中
     void init(ServletConfig config) throws ServletException;
     
     
-
     /**
      * Returns a {@link ServletConfig} object, which contains
      * initialization and startup parameters for this servlet.
@@ -182,11 +181,10 @@ public interface Servlet {
      * @see 		#init
      *
      */
-    // 核心方法: Servlet上下文 入口
+    // 核心方法 获取Servlet配置（Servlet上下文入口）
     ServletConfig getServletConfig();
     
     
-
     /**
      * Called by the servlet container to allow the servlet to respond to 
      * a request.
@@ -206,7 +204,7 @@ public interface Servlet {
      * <a href="http://java.sun.com/Series/Tutorial/java/threads/multithreaded.html">
      * the Java tutorial on multi-threaded programming</a>.
      *
-     * <p>由 servlet 容器调用以允许 servlet 响应请求。
+     * <p>由 servlet 容器调用以允许 Servlet 响应请求。
      *
      * <p>本方法仅在 servlet 的 init 方法已成功完成之后，才会被调用。
      *
@@ -230,12 +228,11 @@ public interface Servlet {
      * @exception IOException 		if an input or output exception occurs (输入或输出发生异常)
      *
      */
-    // 核心方法: 服务每个请求和响应
+    // 核心方法 响应请求
     void service(ServletRequest req, ServletResponse res)
             throws ServletException, IOException;
 	
 	
-
     /**
      * Returns information about the servlet, such
      * as author, version, and copyright.
@@ -275,6 +272,6 @@ public interface Servlet {
      * 并确保任何持久性状态与内存中的 servlet 的当前状态保持同步。
      *
      */
-    // 核心方法: 下线并销毁 Servlet
+    // 核心方法 servlet正从服务中取出(下线)并释放资源
     void destroy();
 }
