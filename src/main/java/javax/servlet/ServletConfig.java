@@ -66,9 +66,9 @@ import java.util.Enumeration;
  *
  * <p>Servlet 配置对象：在初始化时，由 servlet 容器传递信息给 servlet。
  */
-// 核心接口
- public interface ServletConfig {
-    
+// 核心接口 Servlet配置对象（在初始化时，由servlet容器传递信息给servlet）
+public interface ServletConfig {
+
     /**
      * Returns the name of this servlet instance.
      * The name may be provided via server administration, assigned in the 
@@ -80,7 +80,6 @@ import java.util.Enumeration;
      *
      * @return	the name of the servlet instance
      */
-    // 核心方法: 获取 Servlet实例的名称
     String getServletName();
 
 
@@ -88,14 +87,14 @@ import java.util.Enumeration;
      * Returns a reference to the {@link ServletContext} in which the caller
      * is executing.
      *
-     * <p>返回执行调用方的 servlet 上下文的引用。
+     * <p>返回执行该调用方的 servlet 上下文的引用。
      *
      * @return	a {@link ServletContext} object, used
-     * by the caller to interact with its servlet container (用于调用者与其 servlet 容器进行交互)
+     * by the caller to interact with its servlet container (用于调用方与其 servlet 容器交互)
      * 
      * @see ServletContext
      */
-    // 核心方法: 获取 Servlet上下文
+    // 核心方法 获取执行该调用方的Servlet上下文
     ServletContext getServletContext();
 
 
