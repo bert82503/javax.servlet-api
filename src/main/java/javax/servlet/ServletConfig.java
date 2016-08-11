@@ -62,56 +62,69 @@ import java.util.Enumeration;
 
 /**
  * A servlet configuration object used by a servlet container
- * to pass information to a servlet during initialization. 
+ * to pass information to a servlet during initialization.
+ *
+ * <p>Servlet 配置对象：在初始化时，由 servlet 容器传递信息给 servlet。
  */
- public interface ServletConfig {
-    
+// 核心接口 Servlet配置对象（在初始化时，由servlet容器传递信息给servlet）
+public interface ServletConfig {
+
     /**
      * Returns the name of this servlet instance.
      * The name may be provided via server administration, assigned in the 
      * web application deployment descriptor, or for an unregistered (and thus
      * unnamed) servlet instance it will be the servlet's class name.
      *
+     * <p>返回 servlet 实例的名称。
+     * 名称在 web 应用程序部署描述符中指定，或对于未注册(+未命名)的 servlet 实例将会使用 servlet 的类名。
+     *
      * @return	the name of the servlet instance
      */
-    public String getServletName();
+    String getServletName();
 
 
     /**
      * Returns a reference to the {@link ServletContext} in which the caller
      * is executing.
      *
+     * <p>返回执行该调用方的 servlet 上下文的引用。
+     *
      * @return	a {@link ServletContext} object, used
-     * by the caller to interact with its servlet container
+     * by the caller to interact with its servlet container (用于调用方与其 servlet 容器交互)
      * 
      * @see ServletContext
      */
-    public ServletContext getServletContext();
+    // 核心方法 获取执行该调用方的Servlet上下文
+    ServletContext getServletContext();
 
-    
+
     /**
      * Gets the value of the initialization parameter with the given name.
      *
+     * <p>获取给定的初始化参数名称的值。
+     *
      * @param name the name of the initialization parameter whose value to
-     * get
+     * get (初始化参数的名称)
      *
      * @return a <code>String</code> containing the value 
      * of the initialization parameter, or <code>null</code> if 
      * the initialization parameter does not exist
      */
-    public String getInitParameter(String name);
+    String getInitParameter(String name);
 
 
     /**
      * Returns the names of the servlet's initialization parameters
-     * as an <code>Enumeration</code> of <code>String</code> objects, 
+     * as an <code>Enumeration</code> of <code>String</code> objects,
      * or an empty <code>Enumeration</code> if the servlet has
      * no initialization parameters.
      *
-     * @return an <code>Enumeration</code> of <code>String</code> 
+     * <p>返回 servlet 初始化参数的名称列表。
+     *
+     * @return an <code>Enumeration</code> of <code>String</code>
      * objects containing the names of the servlet's 
      * initialization parameters
      */
-    public Enumeration<String> getInitParameterNames();
+    Enumeration<String> getInitParameterNames();
 
 }
