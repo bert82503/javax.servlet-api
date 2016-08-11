@@ -142,7 +142,7 @@ public interface Servlet {
      * servlet 容器不能将 servlet 放置到服务中。
      *
      *
-     * @param config		a <code>ServletConfig</code> object
+     * @param config	a <code>ServletConfig</code> object
      *					containing the servlet's
      * 					configuration and initialization parameters (包含 Servlet 的配置信息和初始化参数)
      *
@@ -247,7 +247,6 @@ public interface Servlet {
      *
      */
     String getServletInfo();
-    
     
 
     /**

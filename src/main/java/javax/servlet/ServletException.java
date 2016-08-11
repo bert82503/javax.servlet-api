@@ -58,13 +58,11 @@
 
 package javax.servlet;
 
-
 /**
  * Defines a general exception a servlet can throw when it
  * encounters difficulty.
- *
- *
- * <p>定义 Servlet 可以抛出的通用异常。
+ * <p/>
+ * 定义 Servlet 在遭遇麻烦时可以抛出的通用异常。
  *
  * @author  Various
  */
