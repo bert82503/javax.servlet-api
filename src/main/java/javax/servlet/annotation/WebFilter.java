@@ -40,12 +40,14 @@
 
 package javax.servlet.annotation;
 
+import javax.servlet.DispatcherType;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
-import javax.servlet.DispatcherType;
 
 /**
  * Annotation used to declare a servlet filter.
@@ -53,11 +55,13 @@ import javax.servlet.DispatcherType;
  * <p>This annotation is processed by the container at deployment time,
  * and the corresponding filter applied to the specified URL patterns,
  * servlets, and dispatcher types.
+ * 本注解是在部署时由容器来处理，相应的filter应用于指定的URL模式列表，servlets和分发程序类型列表。
  * 
  * @see javax.servlet.Filter
  *
  * @since Servlet 3.0
  */
+// [注解] 用于声明一个servlet过滤器
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
@@ -65,21 +69,25 @@ public @interface WebFilter {
 
     /**
      * The description of the filter
+     * 过滤器的描述
      */
     String description() default "";
     
     /**
      * The display name of the filter
+     * 过滤器的显示名称
      */
     String displayName() default "";
     
     /**
      * The init parameters of the filter
+     * 过滤器的初始化参数列表
      */
     WebInitParam[] initParams() default {};
     
     /**
      * The name of the filter
+     * 过滤器的名称
      */
     String filterName() default "";
     
@@ -95,30 +103,34 @@ public @interface WebFilter {
 
     /**
      * The names of the servlets to which the filter applies.
+     * 过滤器应用的servlets名称列表
      */
     String[] servletNames() default {};
     
     /**
      * The URL patterns to which the filter applies
+     * @see #urlPatterns()
      */
     String[] value() default {};
 
     /**
      * The URL patterns to which the filter applies
+     * 过滤器应用的URL模式列表
      */
     String[] urlPatterns() default {};
 
     /**
      * The dispatcher types to which the filter applies
+     * 过滤器应用的分发程序类型列表
      */
     DispatcherType[] dispatcherTypes() default {DispatcherType.REQUEST};
     
     /**
      * Declares whether the filter supports asynchronous operation mode.
+     * 声明servlet是否支持异步操作模式
      *
      * @see javax.servlet.ServletRequest#startAsync
-     * @see javax.servlet.ServletRequest#startAsync(ServletRequest,
-     * ServletResponse)
+     * @see javax.servlet.ServletRequest#startAsync(ServletRequest, ServletResponse)
      */
     boolean asyncSupported() default false;
 

@@ -63,9 +63,11 @@ import java.lang.annotation.Target;
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
+// [注解] 用于声明一个Web应用监听器
 public @interface WebListener {
     /**
      * Description of the listener
+     * 监听器的描述
      */
     String value() default "";
 }

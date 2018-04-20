@@ -40,6 +40,8 @@
 
 package javax.servlet.annotation;
 
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Target;
 import java.lang.annotation.RetentionPolicy;
@@ -52,11 +54,13 @@ import java.lang.annotation.Documented;
  * <p>This annotation is processed by the container at deployment time,
  * and the corresponding servlet made available at the specified URL
  * patterns.
+ * 本注解是在部署时由容器来处理，相应的servlet应用于指定的URL模式列表。
  * 
  * @see javax.servlet.Servlet
  *
  * @since Servlet 3.0
  */
+// [注解] 用于声明一个servlet
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
@@ -64,35 +68,40 @@ public @interface WebServlet {
     
     /**
      * The name of the servlet
+     * servlet的名称
      */
     String name() default "";
     
     /**
      * The URL patterns of the servlet
+     * @see #urlPatterns()
      */
     String[] value() default {};
 
     /**
      * The URL patterns of the servlet
+     * servlet的URL模式列表
      */
     String[] urlPatterns() default {};
     
     /**
-     * The load-on-startup order of the servlet 
+     * The load-on-startup order of the servlet
+     * servlet在启动时的加载顺序
      */
     int loadOnStartup() default -1;
     
     /**
      * The init parameters of the servlet
+     * servlet的初始化参数列表
      */
     WebInitParam [] initParams() default {};
     
     /**
      * Declares whether the servlet supports asynchronous operation mode.
+     * 声明servlet是否支持异步操作模式
      *
      * @see javax.servlet.ServletRequest#startAsync
-     * @see javax.servlet.ServletRequest#startAsync(ServletRequest,
-     * ServletResponse)
+     * @see javax.servlet.ServletRequest#startAsync(ServletRequest, ServletResponse)
      */
     boolean asyncSupported() default false;
     
@@ -108,11 +117,13 @@ public @interface WebServlet {
 
     /**
      * The description of the servlet
+     * servlet的描述
      */
     String description() default "";
 
     /**
      * The display name of the servlet
+     * servlet的显示名称
      */
     String displayName() default "";
 

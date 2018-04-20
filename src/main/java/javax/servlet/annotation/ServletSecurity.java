@@ -40,7 +40,6 @@
 
 package javax.servlet.annotation;
 
-
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Inherited;
@@ -56,7 +55,7 @@ import java.lang.annotation.RetentionPolicy;
  *
  * @since Servlet 3.0
  */
-
+// 用于Servlet实现类指定安全约束
 @Inherited
 @Documented
 @Target(ElementType.TYPE)

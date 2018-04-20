@@ -52,6 +52,7 @@ import java.lang.annotation.Documented;
  * 
  * @since Servlet 3.0
  */
+// [注解] 用于在Servlet或Filter实现类上指定一个初始化参数
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented

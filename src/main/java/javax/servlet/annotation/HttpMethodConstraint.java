@@ -40,11 +40,11 @@
 
 package javax.servlet.annotation;
 
+import javax.servlet.annotation.ServletSecurity.EmptyRoleSemantic;
+import javax.servlet.annotation.ServletSecurity.TransportGuarantee;
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-import javax.servlet.annotation.ServletSecurity.EmptyRoleSemantic;
-import javax.servlet.annotation.ServletSecurity.TransportGuarantee;
 
 /**
  * This annotation is used within the {@link ServletSecurity} annotation to
@@ -57,7 +57,8 @@ import javax.servlet.annotation.ServletSecurity.TransportGuarantee;
 public @interface HttpMethodConstraint {
 
     /**
-     * Http protocol method name
+     * Http protocol method name.
+     * HTTP协议方法名称。
      *
      * @return the name of an HTTP protocol method. <code>value</code>
      * may not be null, or the empty string, and must be a
@@ -88,6 +89,7 @@ public @interface HttpMethodConstraint {
 
     /**
      * The names of the authorized roles.
+     * 授权角色的名称。
      *
      * Duplicate role names appearing in rolesAllowed are insignificant and
      * may be discarded during runtime processing of the annotation. The String

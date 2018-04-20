@@ -54,6 +54,7 @@ import java.lang.annotation.RetentionPolicy;
  *
  * @since Servlet 3.0
  */
+// 用于声明Servlet容器初始化程序可以处理的类类型
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface HandlesTypes {

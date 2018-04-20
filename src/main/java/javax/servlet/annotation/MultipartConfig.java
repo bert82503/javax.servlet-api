@@ -56,18 +56,20 @@ import java.lang.annotation.RetentionPolicy;
  * {@link javax.servlet.http.HttpServletRequest#getPart getPart} or
  * {@link javax.servlet.http.HttpServletRequest#getParts getParts}.
  */
-
+// 文件上传
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface MultipartConfig {
 
     /**
      * The directory location where files will be stored
+     * 文件将被存储的目录位置
      */
     String location() default "";
 
     /**
      * The maximum size allowed for uploaded files.
+     * 允许上传的文件的最大大小
      * 
      * <p>The default is <tt>-1L</tt>, which means unlimited.
      */
@@ -76,6 +78,7 @@ public @interface MultipartConfig {
     /**
      * The maximum size allowed for <tt>multipart/form-data</tt>
      * requests
+     * 请求允许的最大大小
      * 
      * <p>The default is <tt>-1L</tt>, which means unlimited.
      */
